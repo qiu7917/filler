@@ -123,10 +123,10 @@ li {
   border-left: 2px solid #cc9933;
 }
 .slick .slider .slick-dots {
-  bottom: -40px;
+  bottom: -35px;
 }
 .slick .slider .slick-dots li {
-  margin: 0 12px;
+  margin: 0 6px;
   width: 9px;
   height: 9px;
   border-radius: 50%;
@@ -165,7 +165,7 @@ li {
 
 .sec06 {
   background-color: #faf5eb;
-  padding-bottom: 100px;
+  padding-bottom: 55px;
 }
 .sec06 .sec06-slick {
   padding: 0 20px;

@@ -3,8 +3,22 @@ $(function () {
     /*=================================================
     Slick
     ===================================================*/
-    $(".slider").slick({
+    $(".sec06-slider").slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        infinite: true,
+        arrows: true,
+        prevArrow: '<div class="slide-arrow prev-arrow"></div>',
+        nextArrow: '<div class="slide-arrow next-arrow"></div>',
+        dots: true,
+        centerMode: true,
+        centerPadding: '0px',
+        slidesToShow: 1,
+    });
+
+        $(".sec09-slider").slick({
         autoplay: false,
+        autoplaySpeed: 3000,
         infinite: true,
         arrows: true,
         prevArrow: '<div class="slide-arrow prev-arrow"></div>',
