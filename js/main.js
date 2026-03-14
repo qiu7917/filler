@@ -16,7 +16,7 @@ $(function () {
         slidesToShow: 1,
     });
 
-        $(".sec09-slider").slick({
+    $(".sec09-slider").slick({
         autoplay: false,
         autoplaySpeed: 3000,
         infinite: true,
@@ -33,8 +33,37 @@ $(function () {
     /*=================================================
     アコーディオンメニュー
     ===================================================*/
-    $('.accordion').on('click', function (e) {
-        $('.accordion').not(this).removeAttr('open');
+    $('.accordion-header').on('click', function () {
+        var $header = $(this);
+        var $item = $header.parent(); 
+        var $content = $header.next('.accordion-content');
+        var $slider = $header.closest('.slick-slider'); 
+
+        if ($header.hasClass('is-active')) {
+            $header.removeClass('is-active');
+            $item.removeClass('is-open-padding');
+            $content.slideUp(400, function() {
+                if ($slider.length) {
+                    $slider.slick('setPosition');
+                }
+            });
+        } else {
+            $header.addClass('is-active');
+            $item.addClass('is-open-padding');
+            $content.slideDown(400, function() {
+                if ($slider.length) {
+                    $slider.slick('setPosition');
+                }
+                var $iframe = $content.find('iframe');
+                if ($iframe.length && !$iframe.attr('src')) {
+                    $iframe.attr('src', $iframe.data('src'));
+                }
+            });
+        }
+    });
+
+    $('.accordion-content img').on('click', function () {
+        $(this).closest('.accordion-content').prev('.accordion-header').click();
     });
 
 

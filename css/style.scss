@@ -64,41 +64,6 @@ li {
     }
 }
 
-.accordion {
-    summary {
-        list-style: none;
-        cursor: pointer !important;
-        display: block;
-
-        &::-webkit-details-marker {
-            display: none !important;
-        }
-
-        &::marker {
-            display: none;
-        }
-
-        .btn-opened {
-            display: none;
-        }
-
-        .btn-closed {
-            display: block;
-        }
-    }
-
-    &[open] {
-        summary {
-            .btn-opened {
-                display: block !important;
-            }
-
-            .btn-closed {
-                display: none !important;
-            }
-        }
-    }
-}
 
 .slick {
     .slider {
@@ -124,7 +89,7 @@ li {
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-40%, -50%) rotate(45deg);
+                transform: translate(-30%, -50%) rotate(45deg);
                 content: "";
                 height: 10px;
                 width: 10px;
@@ -140,7 +105,7 @@ li {
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-60%, -50%) rotate(225deg);
+                transform: translate(-80%, -50%) rotate(225deg);
                 content: "";
                 height: 10px;
                 width: 10px;
@@ -220,11 +185,42 @@ li {
     .sec06-slick {
         padding: 0 20px;
 
-        .accordion {
-            padding-bottom: 30px;
+        .accordion-item {
             background-color: #ffffff;
+            padding-bottom: 30px; // 閉じている時の下の余白
 
-            &[open] {
+            .accordion-header {
+                cursor: pointer;
+
+                .btn-opened {
+                    display: none;
+                }
+
+                .btn-closed {
+                    display: block;
+                }
+
+                &.is-active {
+                    .btn-opened {
+                        display: block;
+                    }
+
+                    .btn-closed {
+                        display: none;
+                    }
+                }
+            }
+
+            .accordion-content {
+                display: none;
+
+                img {
+                    width: 100%;
+                    display: block;
+                }
+            }
+
+            &.is-open-padding {
                 padding-bottom: 0;
             }
         }
@@ -259,6 +255,64 @@ li {
 
         .sec10-item {
             margin-bottom: 12px;
+
+            .accordion-item {
+                width: 100%;
+
+                .accordion-header {
+                    cursor: pointer;
+
+                    .btn-opened {
+                        display: none;
+                    }
+
+                    .btn-closed {
+                        display: block;
+                    }
+
+                    &.is-active {
+                        .btn-opened {
+                            display: block;
+                        }
+
+                        .btn-closed {
+                            display: none;
+                        }
+                    }
+                }
+
+                .accordion-content {
+                    display: none;
+                    overflow: hidden;
+
+                    .sec10-item-open {
+                        position: relative;
+                        width: 100%;
+
+                        img {
+                            width: 100%;
+                            display: block;
+                        }
+
+                        iframe {
+                            position: absolute;
+                            bottom: 5%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: calc(100% - 70px);
+                            max-width: 440px;
+                            aspect-ratio: 28 / 15;
+                            height: auto;
+                            border: none;
+
+                            @include m.tab {
+                                max-width: 658px;
+                                max-height: 353px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
