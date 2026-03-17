@@ -3,6 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PXBPDZP');</script>
+    <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="フィラークリニックは、ヒアルロン酸注入やボトックス注射などの美容医療を提供するクリニックです。完全オーダーメイドのヒアルロン酸注入で自然な美しさを叶えます。">
     <meta name="keywords" content="フィラークリニック, ヒアルロン酸注入, 骨格診断, オーダーメイド">
@@ -28,6 +38,11 @@
 
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXBPDZP" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <header></header>
 
     <main>
@@ -315,8 +330,7 @@
         <div class="container">
             <img src="img/footer.png" alt="">
             <div class="fixedbtn">
-                <a href="https://www.efiller.jp/contact/?clinic=common" target="_blank" rel="noopener noreferrer"
-                    class="cta-mail">
+                <a href="https://www.efiller.jp/linemenu/" target="_blank" rel="noopener noreferrer" class="cta-line">
                     <img src="img/fixedbtn-line.png" alt="">
                 </a>
                 <a href="https://www.efiller.jp/contact/?clinic=common" target="_blank" rel="noopener noreferrer"
@@ -339,6 +353,29 @@
 
     <!-- main.js -->
     <script src="js/main.js"></script>
+
+    <script>
+        window.addEventListener('load', function () {
+            var queryString = window.location.search;
+            if (!queryString) return;
+
+            var links = document.querySelectorAll('a');
+
+            links.forEach(function (link) {
+                var href = link.getAttribute('href');
+
+                if (!href || href.indexOf('#') === 0 || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) {
+                    return;
+                }
+
+                if (href.indexOf('?') !== -1) {
+                    link.href = href + '&' + queryString.substring(1);
+                } else {
+                    link.href = href + queryString;
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
